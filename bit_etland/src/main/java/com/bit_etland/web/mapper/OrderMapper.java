@@ -2,9 +2,11 @@ package com.bit_etland.web.mapper;
 
 import java.util.List;
 
-import com.bit_etland.web.domain.OrderDTO;
+import org.springframework.stereotype.Component;
 
-public interface OrderDAO {
+import com.bit_etland.web.domain.OrderDTO;
+@Component
+public interface OrderMapper {
 	public void insertOrder(OrderDTO ord);
 	
 	public List<OrderDTO> selectEmplyoeeList();

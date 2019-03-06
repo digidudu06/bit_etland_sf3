@@ -3,7 +3,9 @@ package com.bit_etland.web.service;
 import java.util.List;
 
 import com.bit_etland.web.domain.ShipperDTO;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface ShipperService {
 	public void joinShipper(ShipperDTO shi);
 	

@@ -2,9 +2,11 @@ package com.bit_etland.web.mapper;
 
 import java.util.List;
 
-import com.bit_etland.web.domain.ProductDTO;
+import org.springframework.stereotype.Component;
 
-public interface ProductDAO {
+import com.bit_etland.web.domain.ProductDTO;
+@Component
+public interface ProductMapper {
 	public void insertProduct(ProductDTO pro);
 	
 	public List<ProductDTO> selectProductList();

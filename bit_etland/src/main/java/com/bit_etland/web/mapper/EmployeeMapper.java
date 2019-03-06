@@ -2,9 +2,11 @@ package com.bit_etland.web.mapper;
 
 import java.util.List;
 
-import com.bit_etland.web.domain.EmployeeDTO;
+import org.springframework.stereotype.Component;
 
-public interface EmployeeDAO {
+import com.bit_etland.web.domain.EmployeeDTO;
+@Component
+public interface EmployeeMapper {
 	public void insertEmployee(EmployeeDTO emp);
 	
 	public List<EmployeeDTO> selectEmplyoeeList();

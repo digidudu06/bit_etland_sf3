@@ -3,7 +3,9 @@ package com.bit_etland.web.service;
 import java.util.List;
 
 import com.bit_etland.web.domain.SuppolierDTO;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface SuppolierService {
 	public void registSuppolier(SuppolierDTO sup);
 	

@@ -2,9 +2,11 @@ package com.bit_etland.web.mapper;
 
 import java.util.List;
 
-import com.bit_etland.web.domain.SuppolierDTO;
+import org.springframework.stereotype.Component;
 
-public interface SuppolierDAO {
+import com.bit_etland.web.domain.SuppolierDTO;
+@Component
+public interface SuppolierMapper {
 	public void insertSuppolier(SuppolierDTO sup);
 	
 	public List<SuppolierDTO> selectSuppolierList();

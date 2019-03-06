@@ -5,7 +5,9 @@ import java.util.Map;
 
 import com.bit_etland.web.domain.CustomerDTO;
 import com.bit_etland.web.proxy.Proxy;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface CustomerService {
 	public void joinCustomer(CustomerDTO cus);
 	

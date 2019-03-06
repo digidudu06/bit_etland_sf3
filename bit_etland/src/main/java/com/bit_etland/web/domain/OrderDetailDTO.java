@@ -1,8 +1,11 @@
 package com.bit_etland.web.domain;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Data;
 
-public @Data class OrderDetailDTO {
+@Data @Component
+public class OrderDetailDTO {
 	private int orderDetailId, orderId, productId, quantity;
 
 	

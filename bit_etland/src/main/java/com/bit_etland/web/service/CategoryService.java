@@ -2,9 +2,12 @@ package com.bit_etland.web.service;
 
 import java.util.List;
 
+
 import com.bit_etland.web.domain.CategoryDTO;
 import com.bit_etland.web.proxy.Proxy;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface CategoryService {
 	public void joinCategory(CategoryDTO cus);
 	

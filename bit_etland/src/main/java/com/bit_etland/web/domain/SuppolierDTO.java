@@ -1,8 +1,11 @@
 package com.bit_etland.web.domain;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Data;
 
-public @Data class SuppolierDTO {
+@Data @Component
+public class SuppolierDTO {
 	private String supplierId, supplierName, contactName, address, city, postalCode, country, phone;
 
 }

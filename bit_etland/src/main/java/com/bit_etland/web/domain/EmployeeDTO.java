@@ -1,7 +1,10 @@
 package com.bit_etland.web.domain;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Data;
 
-public @Data class EmployeeDTO {
+@Data @Component
+public class EmployeeDTO {
 	private String emploueeId, manager, name, birthDate, photo, notes;
 }
