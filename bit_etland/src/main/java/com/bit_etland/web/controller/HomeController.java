@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -32,6 +33,13 @@ public class HomeController {
 		session.setAttribute("time",new SimpleDateFormat("yyyy년 MM월 dd일 hh:mm").format(new Date()));
 		
 		return "public:home/main.tiles";
+	}
+	@RequestMapping(value="/move/{dir}/{page}", method=RequestMethod.GET)
+	public String move(
+			@PathVariable String dir,
+			@PathVariable String page) {
+		logger.info("\n --------- Move to {} !! ----------",dir+"/"+page);
+		return String.format("public:%s/%s.tiles", dir,page);
 	}
 	
 }

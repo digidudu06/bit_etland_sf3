@@ -27,7 +27,7 @@ $('#cust_join').click(function(){
 	location.assign('customer.do?cmd=move&page=signup');
 });
 $('#cust_login').click(function(){
-	location.assign('customer.do?cmd=move&page=signin');
+	location.assign('${ctx}/move/customer/signin');
 });
 
 $('#emp_register').click(function(){
@@ -35,7 +35,7 @@ $('#emp_register').click(function(){
 });
 
 $('#emp_access').click(function(){
-	location.assign('employee.do?cmd=move&page=access');
+	location.assign('${ctx}/employee/move/access');
 });
 $('#oop_access').click(function(){
 /* 	encap.main();	 */
