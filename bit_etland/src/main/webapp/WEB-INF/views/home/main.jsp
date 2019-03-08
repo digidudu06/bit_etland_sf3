@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="top.jsp"/>
 <link rel="stylesheet" href="${css}/home/main.css" />
     <div class="grid-item" id="left">
     	고객 전용<br /><br />
@@ -22,7 +21,6 @@
     	<h1 style="margin-bottom: 100px">알고리즘</h1><br />
     	<a href="#" id="algo_access">접속하기</a>
     </div>
-<jsp:include page="bottom.jsp"/>  
 <script src="${js}/oop.js"></script>
 <script>
 $('#cust_join').click(function(){
