@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:include page="../home/top.jsp"/>
 <div class="grid-item" id="navi_bar">
 	<jsp:include page="../employee/nav.jsp"/>
 </div>
@@ -31,9 +30,8 @@
 	</div>
 </div>
 </form>
-<jsp:include page="../home/bottom.jsp"/>
 <script>
-$('#confirm_btn').click(()=>{
+$('#confirm_btn').click(function(){
 	var form = $('#update_form');
 	form.attr('action','${ctx}/customer.do');
 	form.attr('method','post');

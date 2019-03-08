@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:include page="../home/top.jsp"/>
 <div class="grid-item" id="navi_bar">
 	<jsp:include page="../employee/nav.jsp"/>
 </div>
@@ -28,13 +27,12 @@
 		<span id="delete_btn" class="label label-danger">회원탈퇴</span>
 	</div>
 </div>
-<jsp:include page="../home/bottom.jsp"/>
 <script>
-$('#update_btn').click(()=>{
+$('#update_btn').click(function(){
 	location.assign('${ctx}/customer.do?cmd=cust_retrieve&page=update&customer_id=${cust.customerId}');
 });
 
-$('#file_upload_btn').click(()=>{
+$('#file_upload_btn').click(function(){
 	$('#file_form')
 	.attr('method','post')
 	.attr('action','${ctx}/customer.do?cmd=cust_file_upload&page=detail&customer_id=${cust.customerId}')
@@ -42,7 +40,7 @@ $('#file_upload_btn').click(()=>{
 	.submit();
 });
 
-$('#delete_btn').click(()=>{
+$('#delete_btn').click(function(){
 	location.assign('${ctx}/customer.do?cmd=cust_delete&dir=home&page=main&customer_id=${cust.customerId}');
 });
 </script>

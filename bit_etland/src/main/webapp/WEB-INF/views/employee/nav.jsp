@@ -11,7 +11,7 @@
     <li><a href="#">공급업체</a></li>
 </ul>
 <script>
-$('#category').attr('style','cursor : pointer').click(()=>{
+$('#category').attr('style','cursor : pointer').click(function(){
 	alert('카테고리 누름');
 	location.assign('${ctx}/category.do?cmd=cate_list&page=list');
 });

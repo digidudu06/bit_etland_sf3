@@ -31,11 +31,12 @@
 </form>
 </div>
 <script>
-$('#confirm_btn').click(()=>{
+$('#confirm_btn').click(function(){
 	var customerId = $('#customerId').val();
 	var password = $('#password').val();
 	$('#form')
-	.attr('action', '${ctx}/customer.do')
+	.attr('method', 'POST')
+	.attr('action', '${ctx}/customer/signin')
 	.submit();
 });
 </script>

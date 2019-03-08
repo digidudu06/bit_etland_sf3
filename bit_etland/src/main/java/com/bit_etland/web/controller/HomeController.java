@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class HomeController {
 	static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@RequestMapping(value="/", method=RequestMethod.GET)	
+	@RequestMapping("/")	
 	public String home(HttpSession session,
 			HttpServletRequest request) {
 		logger.info("\n --------- Welcome {} !! ----------","Home");
@@ -34,7 +34,7 @@ public class HomeController {
 		
 		return "public:home/main.tiles";
 	}
-	@RequestMapping(value="/move/{dir}/{page}", method=RequestMethod.GET)
+	@RequestMapping("/move/{dir}/{page}")
 	public String move(
 			@PathVariable String dir,
 			@PathVariable String page) {
