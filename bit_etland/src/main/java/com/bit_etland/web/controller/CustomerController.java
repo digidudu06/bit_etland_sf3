@@ -35,7 +35,7 @@ public class CustomerController {
 		System.out.println("로그인 전 : "+ customer.toString());
 		
 		customer = customerService.retrieveOneCustomer(cus);
-		session.addAttribute("cust", customer);
+		if(customer != null) session.addAttribute("cust", customer);
 		System.out.println("로그인 후 결과" + customer.toString());
 		return (customer != null)? 
 				"public:customer/detail.tiles" 

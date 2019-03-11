@@ -20,8 +20,6 @@
 	주소 : <input type="text" name="city" value="${cust.city}"/><br />
 	상세주소 : <input type="text" name="address" value="${cust.address}"/><br />
 	우편번호 : <input type="text" name="postalCode" value="${cust.postalCode}"/>
-	<input type="hidden" name="cmd" value="cust_update" />
-	<input type="hidden" name="page" value="detail" />
 	</div>
 	<div>
 		<span id="confirm_btn" class="label label-success">확인</span>
