@@ -12,15 +12,14 @@
 	검색한 사람의 정보<br />
 	<!-- 1번 각각 hidden으로 값을 전부 보냄 -->
 	<!-- 2번 id만 hidden으로 보냄 -->
-	아이디 : ${cust.customerId}<br />
-	<input type="hidden" name="default_Id" value="${cust.customerId}"/>
-	이름 : ${cust.customerName}<br />
-	성별 : 남<br />
-	임시 비밀번호 : <input type="text" name="password" placeholder="임시 비밀번호"/><br />
-	전화번호 : <input type="text" name="phone" placeholder="${cust.phone}"/><br />
-	주소 : <input type="text" name="city" placeholder="${cust.city}"/><br />
-	상세주소 : <input type="text" name="address" placeholder="${cust.address}"/><br />
-	우편번호 : <input type="text" name="postal_code" placeholder="${cust.postalCode}"/>
+	아이디 : <input type="hidden" name="customerId" value="${cust.customerId}" readonly/>
+	이름 : <input type="hidden" name="customerName" value="${cust.customerName}" readonly/>
+	성별 : <input type="hidden" name="ssn" value="${cust.ssn}" readonly/>
+	임시 비밀번호 : <input type="text" name="password" value="임시 비밀번호"/><br />
+	전화번호 : <input type="text" name="phone" value="${cust.phone}"/><br />
+	주소 : <input type="text" name="city" value="${cust.city}"/><br />
+	상세주소 : <input type="text" name="address" value="${cust.address}"/><br />
+	우편번호 : <input type="text" name="postal_code" value="${cust.postalCode}"/>
 	<input type="hidden" name="cmd" value="cust_update" />
 	<input type="hidden" name="page" value="detail" />
 	</div>
@@ -32,12 +31,12 @@
 </form>
 <script>
 $('#confirm_btn').click(function(){
-	var form = $('#update_form');
-	form.attr('action','${ctx}/customer.do');
-	form.attr('method','post');
-	form.submit();
+	$('#update_form')
+	.attr('action','${ctx}/customer/update')
+	.attr('method','post')
+	.submit();
 });
-$('#cancel_btn').click(()=>{
+$('#cancel_btn').click(function(){
 	alert('취소');
 });
 

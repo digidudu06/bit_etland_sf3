@@ -14,13 +14,13 @@
 <div class="grid-item">
 	<div>
 	검색한 사람의 정보<br />
-	아이디 : ${cust.customerId}<br />
-	이름 : ${cust.customerName}<br />
-	성별 : 남<br />
-	전화번호 : ${cust.phone}<br />
-	주소 : ${cust.city}<br />
-	상세주소 : ${cust.address}<br />
-	우편번호 : ${cust.postalCode}
+	<div>아이디 : ${cust.customerId}</div>
+	<div>이름 : ${cust.customerName}</div>
+	<div>성별 : 남</div>
+	<div>전화번호 : ${cust.phone}</div>
+	<div>주소 : ${cust.city}</div>
+	<div>상세주소 : ${cust.address}</div>
+	<div>우편번호 : ${cust.postalCode}</div>
 	</div>
 	<div>
 		<span id="update_btn" class="label label-success">수정</span>
@@ -29,7 +29,7 @@
 </div>
 <script>
 $('#update_btn').click(function(){
-	location.assign('${ctx}/customer.do?cmd=cust_retrieve&page=update&customer_id=${cust.customerId}');
+	location.assign('${ctx}/move/customer/update');
 });
 
 $('#file_upload_btn').click(function(){
