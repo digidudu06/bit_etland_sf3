@@ -55,7 +55,7 @@ public class CustomerController {
 	@RequestMapping(value="/update", method=RequestMethod.POST )
 	public String update(@ModelAttribute CustomerDTO cus,
 			Model session,
-			RedirectAttributes red) {
+			RedirectAttributes red) { 
 		logger.info("\n --------- CustomerController {} !! ----------","update");
 		customerService.modifyCustomer(cus);
 		customer = customerService.retrieveOneCustomer(cus);
