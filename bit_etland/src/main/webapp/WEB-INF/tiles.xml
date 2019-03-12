@@ -3,7 +3,7 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-  <definition name="public" template="/WEB-INF/views/layouts/home.jsp">
+  <definition name="public" template="/WEB-INF/views/layouts/intro.jsp">
     <put-attribute name="top" value="/WEB-INF/views/home/top.jsp" />
     <put-attribute name="nav" value="" />
     <put-attribute name="content" value="" />
@@ -14,12 +14,7 @@
   </definition>
   
   <definition name="customer" template="/WEB-INF/views/layouts/customer.jsp">
-    <put-attribute name="headnav" value="/WEB-INF/views/customer/headnav.jsp" />
-    <put-attribute name="hidden-top" value="/WEB-INF/views/customer/hidden-top.jsp" />
-    <put-attribute name="container" value="" />
-    <put-attribute name="sign_up" value="/WEB-INF/views/customer/sign_up.jsp" />
-    <put-attribute name="sign_in" value="/WEB-INF/views/customer/sign_in.jsp" />
-    <put-attribute name="footer" value="/WEB-INF/views/customer/footer.jsp" />
+   <put-attribute name="content" value="" />
   </definition>
   <definition name="customer:*/*.tiles" extends="customer">
     <put-attribute name="container" value="/WEB-INF/views/{1}/{2}.jsp" />

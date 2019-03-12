@@ -36,7 +36,7 @@ $('#confirm_btn').click(function(){
 	var password = $('#password').val();
 	$('#form')
 	.attr('method', 'POST')
-	.attr('action', '${ctx}/customer/signin')
+	.attr('action', '${ctx}/move/layouts/customer')
 	.submit();
 });
 </script>

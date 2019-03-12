@@ -23,7 +23,7 @@ public class HomeController {
 			HttpServletRequest request) {
 		logger.info("\n --------- Welcome {} !! ----------","Home");
 		pxy.setContext();
-		return "public:layouts/home.tiles";
+		return "public:home/main.tiles";
 	}
 	@RequestMapping("/move/{dir}/{page}")
 	public String move(
