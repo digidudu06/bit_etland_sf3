@@ -30,7 +30,7 @@ public class HomeController {
 			@PathVariable String dir,
 			@PathVariable String page) {
 		logger.info("\n --------- Move to {} !! ----------",dir+"/"+page);
-		return String.format("public:%s/%s.tiles", dir,page);
+		return String.format("%s/%s", dir,page);
 	}
 	
 }

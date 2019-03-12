@@ -64,6 +64,7 @@ $(window).load(function () {
       <div class="clear"></div>
     </div>
     <div class="menu_block">
+    
       <nav>
         <ul class="sf-menu">
           <li class="current"><a href="index.html">Home</a></li>
@@ -75,9 +76,10 @@ $(window).load(function () {
             </ul>
           </li>
           <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="tours.html">Tours</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="contacts.html">Contacts</a></li>
+          <li><a href="tours.html">Tours</a></li>
+          
         </ul>
       </nav>
       <div class="clear"></div>
