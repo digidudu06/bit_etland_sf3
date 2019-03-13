@@ -265,7 +265,6 @@ $(window).load(function () {
 </footer>
 </body>
 <script>
-app.context.init('${ctx}');
-
+app.path.init('${ctx}');
 </script>
 </html>
