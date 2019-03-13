@@ -21,7 +21,7 @@ public class ContextProxy {
         session.setAttribute("ctx", ctx);
         session.setAttribute("css", ctx+"/resources/css/");
         session.setAttribute("js", ctx+"/resources/js/");
-        session.setAttribute("img", ctx+"/resources/img/");
+        session.setAttribute("img", ctx+"/resources/image/");
         session.setAttribute("time",new SimpleDateFormat("yyyy년 MM월 dd일 hh:mm:ss").format(new Date()));
     }
 }
