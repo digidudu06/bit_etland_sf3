@@ -57,7 +57,7 @@ $(window).load(function () {
 </head>
 <body class="page1">
 <header>
-  <div class="container_12">
+  <div id="ej_header" class="container_12">
     <div class="grid_12">
       <h1><a href="index.html"><img src="resources/images/logo.png" alt=""></a></h1>
       <div class="clear"></div>
@@ -84,7 +84,8 @@ $(window).load(function () {
     <div class="clear"></div>
   </div>
 </header>
-<div class="main">
+
+<div id="ej_main" class="main">
   <div class="container_12">
     <div class="grid_12">
       <div class="slider-relative">
@@ -254,8 +255,9 @@ $(window).load(function () {
     </div>
   </div>
 </div>
+
 <footer>
-  <div class="container_12">
+  <div id="footer" class="container_12">
     <div class="grid_12">
       <div class="socials"> <a href="#"></a> <a href="#"></a> <a href="#"></a> <a href="#"></a> </div>
       <div class="copy"> Journey &copy; 2045 | <a href="#">Privacy Policy</a> | Design by: <a href="http://www.templatemonster.com/">TemplateMonster.com</a> </div>

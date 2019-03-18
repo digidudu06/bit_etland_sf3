@@ -3,14 +3,18 @@ var app = app || {};
 app.path = (()=>{
 	var init = x=>{
 		app.session.init(x);
-		alert(app.$.img());
 		onCreate();
 	};
 	var onCreate = ()=>{
 		setContentView();
 	};
 	var setContentView = ()=>{
-		
+		$('#ej_header').empty().text('헤더');		
+		$('#ej_main').empty().text('메인');		
+		$('#ej_footer').empty().text('푸터');	
+		$('#ej_header').html('<h1>헤더</h1>');		
+		$('#ej_main').html('<h1>메인</h1>');		
+		$('#ej_footer').html('<h1>푸터</h1>');	
 	};
 	return {init : init};
 })();
