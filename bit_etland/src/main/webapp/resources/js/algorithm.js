@@ -10,28 +10,24 @@ algo = (()=>{
 	let setContentView = ()=>{
 		$.getScript($.js()+'/compo.js',()=>{
 			$('#nav').children().eq(0)
-				.html($$.a({id: 'sequence', url: "#"}).text('수열'));
+				.html($$.a({id: 'seq', url: "#"}).text('수열'));
 			$('#nav').children().eq(1)
 				.html($$.a({id: 'math', url: "#"}).text('수학'));
 			$('#nav').children().eq(2)
-				.html($$.a({id: 'sort', url: "#"}).text('정렬'));
+				.html($$.a({id: 'arr', url: "#"}).text('배열'));
 			$('#nav').children().eq(3)
-				.html($$.a({id: 'array', url: "#"}).text('배열'));
+				.html($$.a({id: 'coll', url: "#"}).text('자료구조'));
 			$('#nav').append($$.li({}))
 				.children().eq(4)
-					.html($$.a({id: 'application', url: "#"}).text('응용'));
+					.html($$.a({id: 'app', url: "#"}).text('응용'));
 			
-			//-----------------------------------------------------------------------------
-			$('#title_1').text('수열 1 - 1+2+3+4+…+100까지의 합계 (do~while)');
-			$('#title_2').text('수열 2 - 1-2+3-4+5-6+…+99-100의 합계 (do~while, while, if) ');
+			//=================================================================================
+			$('#title_1').text('등차수열의 합계');
+			$('#title_2').text('등비수열의 합계');
 			
-			//-----------------------------------------------------------------------------
-			$('#result').html($$.label({name: 'start'}).text('초항'));
-			$('#result').append($$.input({type:'text', id:'start', name:'start', ph:'초항'}));
-			$('#result').append($$.label({name: 'end'}).text('마지막항'));
-			$('#result').append($$.input({type:'text', id:'end', name:'end', ph:'마지막항'}));
-			$('#result').append($$.label({name: 'diff'}).text('공차'));
-			$('#result').append($$.input({type:'text', id:'diff', name:'diff', ph:'공차'}));
+			//=================================================================================
+			input();
+			
 			$('#res_btn_1').text('result').addClass('cursor').click(()=>{
 				$.ajax({
 					url:$.ctx()+'/algo/seq/1',
@@ -46,7 +42,7 @@ algo = (()=>{
 					contentType: "application/json; chatset=utf-8",
 					success:d=>{
 						alert('넘어온 문제 번호 : '+d.result);
-						$('#result').html($$.h({id:'h_res', num:'4'})).text('결과값 : '+d.result);
+						$('#result_1').html($$.h({id:'h_res', num:'4'})).text('결과값 : '+d.result);
 					},
 					error:e=>{
 						alert('AJAX 실패');
@@ -55,12 +51,24 @@ algo = (()=>{
 			});
 			
 			$('#res_btn_2').text('reset').addClass('cursor').click(()=>{
-				$.ajax({	
+				input();
+			});
+			
+			$('#res_btn_3').text('result').addClass('cursor').click(()=>{
+				$.ajax({
+					url:$.ctx()+'/algo/seq/2',
+					type:'post',
+					data:JSON.stringify(
+							{
+								start: $('#start').val(),
+								end:  $('#end').val(),
+								ratio:  $('#ratio').val()
+							}),
+					dateType:'json',
 					contentType: "application/json; chatset=utf-8",
 					success:d=>{
-						$('#result').html($$.input({type:'text', id:'start', name:'start', ph:'초항'}));
-						$('#result').append($$.input({type:'text', id:'end', name:'end', ph:'마지막항'}));
-						$('#result').append($$.input({type:'text', id:'diff', name:'diff', ph:'공차'}));
+						alert('넘어온 문제 번호 : '+d.result);
+						$('#result_1').html($$.h({id:'h_res', num:'4'})).text('결과값 : '+d.result);
 					},
 					error:e=>{
 						alert('AJAX 실패');
@@ -70,6 +78,14 @@ algo = (()=>{
 			
 		});
 	};
+	let input = ()=>{
+		$('#result_1').html($$.label({name: 'start'}).text('초항'));
+		$('#result_1').append($$.input({type:'text', id:'start', name:'start', ph:'초항'}));
+		$('#result_1').append($$.label({name: 'end'}).text('마지막항'));
+		$('#result_1').append($$.input({type:'text', id:'end', name:'end', ph:'마지막항'}));
+		$('#result_1').append($$.label({name: 'diff'}).text('공차'));
+		$('#result_1').append($$.input({type:'text', id:'diff', name:'diff', ph:'공차'}));
+	}
 	
 	
 	return {init : init,

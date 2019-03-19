@@ -31,9 +31,11 @@ public class AlgoController {
 		String start = (String) param.get("start");
 		String end = (String) param.get("end");
 		String diff = (String) param.get("diff");
+		String ratio = (String) param.get("ratio");
 		map.put("start",start);
 		map.put("end",end);
 		map.put("diff",diff);
+		map.put("ratio",ratio);
 		String result = algoService.arithmeticSequence(map);
 		map.put("result",result);
 		return map;
