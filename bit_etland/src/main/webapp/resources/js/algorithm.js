@@ -20,10 +20,23 @@ algo = (()=>{
 			$('#nav').append($$.li({}))
 				.children().eq(4)
 					.html($$.a({id: 'application', url: "#"}).text('응용'));
-			
 			//수열 1 - 1+2+3+4+…+100까지의 합계 (do~while) 
 			$('#title_1').text('수열 1 - 1+2+3+4+…+100까지의 합계 (do~while)');
 			$('#title_2').text('수열 2 - 1-2+3-4+5-6+…+99-100의 합계 (do~while, while, if) ');
+			$('#res_btn_1').text('result').addClass('cursor').click(()=>{
+				$.ajax({
+					url:$.ctx()+'/algo/seq/1',
+					type:'get',
+					data:{},
+					dateType:'json',
+					success:d=>{
+						alert('넘어온 문제 번호 : '+d.result);
+					},
+					error:e=>{
+						alert('AJAX 실패');
+					}
+				});
+			});
 			
 		});
 	};

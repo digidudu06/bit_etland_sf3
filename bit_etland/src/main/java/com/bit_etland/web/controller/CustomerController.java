@@ -1,6 +1,5 @@
 package com.bit_etland.web.controller;
 
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +22,7 @@ import com.bit_etland.web.service.CustomerService;
 @RequestMapping("/customer")
 
 public class CustomerController {
-	static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
 	@Autowired CustomerDTO customer;
 	@Autowired CustomerService customerService;
 	@Autowired ContextProxy pxy;
