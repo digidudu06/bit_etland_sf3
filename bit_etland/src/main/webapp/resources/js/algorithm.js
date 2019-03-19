@@ -26,11 +26,19 @@ algo = (()=>{
 			$('#res_btn_1').text('result').addClass('cursor').click(()=>{
 				$.ajax({
 					url:$.ctx()+'/algo/seq/1',
-					type:'get',
-					data:{},
+					type:'post',
+					data:JSON.stringify(
+							{
+								start: '1',
+								end: '10',
+								diff: '1'
+							}),
 					dateType:'json',
+					contentType: "application/json; chatset=utf-8",
 					success:d=>{
 						alert('넘어온 문제 번호 : '+d.result);
+						$('#result').html($$.h({id: 'h_res', num: '4'}))
+						.text('결과값 : '+d.result);
 					},
 					error:e=>{
 						alert('AJAX 실패');

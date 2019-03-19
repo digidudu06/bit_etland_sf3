@@ -8,5 +8,8 @@ $$ = {
 		},
 		li : x=>{
 			return $('<li id='+x.id+'/>');
+		},
+		h : x=>{
+			return $('<h'+x.num+' id='+x.id+'/>');
 		}
 };
