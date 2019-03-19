@@ -24,7 +24,25 @@ public class AlgoServiceImpl implements AlgoService{
 			N = N+1;
 			if(N>E) break;
 		}
-		result = S+"";
-		return result;
+		return S+"";
+	}
+
+	@Override
+	public String geometricSequence(Map<?, ?> param) {
+		String start = (String) param.get("start"),
+				end = (String) param.get("end"),
+				ratio = (String) param.get("ratio");
+		int A = Integer.parseInt(start);	//초항
+		int E = Integer.parseInt(end);	//마지막 항
+		int R = Integer.parseInt(ratio);	//공비
+		int N = 2;	//N번째
+		int S = A;
+		while(true) {
+			A = A * R;
+			S = S + A;
+			N = N + 1;
+			if(N > E) break;
+		}
+		return S+"";
 	}
 }

@@ -8,4 +8,5 @@ import org.springframework.stereotype.Component;
 public interface AlgoService {
 
 	public String arithmeticSequence(Map<?, ?>param);
+	public String geometricSequence(Map<?, ?>param);
 }
