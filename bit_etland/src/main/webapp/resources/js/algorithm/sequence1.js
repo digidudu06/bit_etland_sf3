@@ -14,7 +14,7 @@ function sequence(){
 						{id:'b', val:'등비수열의 합계'},
 						{id:'c', val:'팩토리얼 수열의 합계'},
 						{id:'d', val:'피보나치 수열의 합계'}
-					];
+						];
 				$.each(arr, (i,v)=>{
 					$(str).appendTo('#right_start');
 					$('#title_1').attr('id','quest_'+v.id);
@@ -53,6 +53,7 @@ function sequence(){
 					});
 				});
 }
+
 
 var _sequence = {
 		//===================================== navi ============================================
@@ -95,9 +96,6 @@ var _sequence = {
 		//======================================== quest =========================================
 		quest : x=>{
 			$('#title_1').text(x);
-			
-			
 			_sequence.input();
-			
 		}
 }
