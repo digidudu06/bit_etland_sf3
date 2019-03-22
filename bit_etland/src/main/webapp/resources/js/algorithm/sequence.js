@@ -1,5 +1,4 @@
 function sequence(){
-	$$.nav();
 	_sequence.remove();
 	$('#right_content').prepend($$.div({id:'right_start'}));
 	$('#leave_a_comment').before('<div id="right_end" />');
