@@ -1,57 +1,85 @@
 function sequence(){
 	_sequence.nav();
 	_sequence.remove();
-	_sequence.quest('등차수열의 합');
-				$('#right_content').prepend($$.div({id:'right_start'}));
-				$('#leave_a_comment').before($$.div({id:'right_end'}));
-				$('#right_start').nextUntil('#right_end')
-						.wrapAll($$.div({id:'new_div'}));
-				let str = $('#new_div').html();
-				$('#new_div').remove();
-				$('#right_end').remove();
-				let arr = [
-						{id:'a', val:'등차수열의 합계'},
-						{id:'b', val:'등비수열의 합계'},
-						{id:'c', val:'팩토리얼 수열의 합계'},
-						{id:'d', val:'피보나치 수열의 합계'}
-						];
-				$.each(arr, (i,v)=>{
-					$(str).appendTo('#right_start');
-					$('#title_1').attr('id','quest_'+v.id);
-					$('#quest_'+v.id).text(v.val);
-					$('.buttons').empty();
-					$('<span class="label label-danger"></span>')
-					.text('결과')
-					.addClass('cursor')
-					.appendTo('.buttons')
-					.click(()=>{
-						let data = {
-								start: $('#start').val(),
-								end:  $('#end').val(),
-								diff:  $('#diff').val()
-								};
-						$.ajax({
-							url: $.ctx()+'/algo/seq/1',
-							type: 'post',
-							data: JSON.stringify(data),
-							dateType: 'json',
-							contentType: "application/json; chatset=utf-8",
-							success: d=>{
-								$('#result').html($$.h({id:'h_res',num:'3'}).text('결과값 : '+d.result));
-							},
-							error:e=>{
-								alert('AJAX 실패');
-							}
-						});
-					});
-					$('<span class="label label-warning" style="margin-left: 10px"></span>')
-					.text('리셋')
-					.addClass('cursor')
-					.appendTo('.buttons')
-					.click(()=>{
-						_sequence.input();
-					});
-				});
+	$('#right_content').prepend($$.div({id:'right_start'}));
+	$('#leave_a_comment').before('<div id="right_end" />');
+	$('#right_start').nextUntil('#right_end')
+			.wrapAll('<div id="new_div" />');
+	let str = $('#new_div').html();
+	
+	$('#new_div').remove();
+	$('#right_end').remove();
+	let arr = [
+			{id:'ari', val:'등차수열의 합계'},
+			{id:'geo', val:'등비수열의 합계'},
+			{id:'fac', val:'팩토리얼 수열의 합계'},
+			{id:'fibo', val:'피보나치 수열의 합계'}
+			];
+	$.each(arr, (i,j)=>{
+		let GID = Math.floor(Math.random() * 10000)+1;
+		let _GID = '#'+GID;
+		$('<div id="'+GID+'">'+str+'</div>').appendTo('#right_start');
+		let POST = GID+"_POST";
+		let _POST = '#'+POST;
+		$(_GID+' h4').attr('id',POST);
+		let TITLE = GID+"_TITLE";
+		let _TITLE = '#'+TITLE;
+		$(_GID+' h2').attr('id',TITLE);
+		let DATE = GID+'_DATE';
+		let _DATE = '#'+DATE;
+		$(_TITLE).siblings('h5').eq(0).attr('id', DATE);
+		let BTN = GID+'_BTN';
+		let _BTN = '#'+BTN;
+		$(_TITLE).siblings('h5').eq(1).attr('id', BTN);
+		let INPUT = GID+'_INPUT';
+		let _INPUT = '#'+INPUT;
+		$(_GID+' p').attr('id',INPUT);
+		$(_TITLE).text(j.val);
+		$(_BTN).empty();
+		$(_INPUT).empty();
+		let x =[{cls: 'start', txt: '시작값'},
+			{cls: 'end', txt: '한계값'},
+			{cls: 'diff', txt: '공차'}];
+		$(_sequence.input(x)).appendTo(_INPUT);
+		$('#remove_s').remove();
+		$('#remove_e').remove();
+		
+		$('<span class="label label-danger"></span>')
+		.text('결과')
+		.addClass('cursor')
+		.attr('name',j.id)
+		.appendTo('_BTN')
+		.click(function(){
+			let that = $(this).attr('name');
+			let data = {
+					start: $('.start').val(),
+					end:  $('.end').val(),
+					diff:  $('.diff').val()
+					};
+			$.ajax({
+				url: $.ctx()+'/algo/seq/'+that,
+				type: 'post',
+				data: JSON.stringify(data),
+				dateType: 'json',
+				contentType: "application/json; chatset=utf-8",
+				success: d=>{
+					$('#_INPUT').empty();
+					$('<h2>결과값 : '+d.result+'</h2>').appendTo(_INPUT);
+				},
+				error:e=>{
+					alert('AJAX 실패');
+				}
+			});
+		});
+		$('<span class="label label-warning" style="margin-left: 10px"></span>')
+		.text('리셋')
+		.addClass('cursor')
+		.appendTo('_BTN')
+		.click(()=>{
+			$(_INPUT).empty();
+			$(_sequence.input(x)).appendTo(_INPUT);
+		});
+	});
 }
 
 
@@ -72,13 +100,15 @@ var _sequence = {
 		},
 		
 		//===================================== input ============================================
-		input : ()=>{	
-			$('#result').html($$.label({name: 'start'}).text('초항'))
-			.append($$.input({type:'text', id:'start', name:'start', ph:'초항'}))
-			.append($$.label({name: 'end'}).text('마지막항'))
-			.append($$.input({type:'text', id:'end', name:'end', ph:'마지막항'}))
-			.append($$.label({name: 'diff'}).text('공차'))
-			.append($$.input({type:'text', id:'diff', name:'diff', ph:'공차'}));
+		input : (x)=>{	
+			let html = '<form>';
+			$.each(x,(i,j)=>{
+				html += '<div class="fomr-group">';
+				html += '<label for="">'+j.txt+' :</label>';
+				html += '<input type="text" class="'+j.cls+'"></div>';
+			});
+			html +='</from>';
+			return html;
 		},
 		
 		//===================================== remove ===========================================

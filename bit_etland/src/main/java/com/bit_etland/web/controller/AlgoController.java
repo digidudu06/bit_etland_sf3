@@ -13,30 +13,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bit_etland.web.service.AlgoService;
+import com.bit_etland.web.service.seqService;
 
 @Controller
 @RequestMapping("/algo")
 public class AlgoController {
 	static final Logger logger = LoggerFactory.getLogger(AlgoController.class);
-	@Autowired AlgoService algoService;
+	@Autowired seqService seqService;
 	@Autowired Map<String, Object> map;
-	@RequestMapping(value = "/seq/{questNum}", method=RequestMethod.POST)
+	@RequestMapping(value = "/seq/{kind}", method=RequestMethod.POST)
 	@ResponseBody	//requst, response
-	public Map<String, Object> seq(@PathVariable String questNum,
+	public Map<String, Object> seq(
+			@PathVariable String kind,
 			@RequestBody Map<String, Object> param) {
 		logger.info("\n --------- AlgoController {} !! ----------","seq");
-		System.out.println("넘어온 문제 번호 : "+questNum);
 		map = new HashMap<String, Object>();
 		String start = (String) param.get("start");
 		String end = (String) param.get("end");
 		String diff = (String) param.get("diff");
-		String ratio = (String) param.get("ratio");
 		map.put("start",start);
 		map.put("end",end);
 		map.put("diff",diff);
-		map.put("ratio",ratio);
-		String result = algoService.arithmeticSequence(map);
+		String result = "";
+		switch(kind) {
+		case "ari":
+			result = seqService.arithmeticSequence(map);
+			break;
+		case "geo":break;
+		case "fac":break;
+		case "fibo":break;
+		}
 		map.put("result",result);
 		return map;
 	}

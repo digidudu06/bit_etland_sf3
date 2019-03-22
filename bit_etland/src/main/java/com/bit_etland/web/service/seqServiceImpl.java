@@ -5,7 +5,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AlgoServiceImpl implements AlgoService{
+public class seqServiceImpl implements seqService{
 	@Override
 	public String arithmeticSequence(Map<?, ?>param) {
 		 String start = (String) param.get("start"),
