@@ -1,8 +1,5 @@
-/**
- * 
- */
 function math(){
-	alert('나왔');
+	alert('math에 입장');
+	$$.nav();
 	
-	나와라
 }
