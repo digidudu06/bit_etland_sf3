@@ -14,7 +14,7 @@ function sequence(){
 						{id:'b', val:'등비수열의 합계'},
 						{id:'c', val:'팩토리얼 수열의 합계'},
 						{id:'d', val:'피보나치 수열의 합계'}
-					];
+						];
 				$.each(arr, (i,v)=>{
 					$(str).appendTo('#right_start');
 					$('#title_1').attr('id','quest_'+v.id);
@@ -54,6 +54,7 @@ function sequence(){
 				});
 }
 
+
 var _sequence = {
 		//===================================== navi ============================================
 		nav : ()=>{
@@ -71,13 +72,8 @@ var _sequence = {
 		},
 		
 		//===================================== input ============================================
-		input : x=>{
-			let arr = [{id:'a'}, {id:'b'}, {id:'c'}, {id:'d'}];
-			$.each(arr,(i,v)=>{
-				alert(v.id);
-			});
-			
-			$('#result'+v.val).html($$.label({name: 'start'}).text('초항'))
+		input : ()=>{	
+			$('#result').html($$.label({name: 'start'}).text('초항'))
 			.append($$.input({type:'text', id:'start', name:'start', ph:'초항'}))
 			.append($$.label({name: 'end'}).text('마지막항'))
 			.append($$.input({type:'text', id:'end', name:'end', ph:'마지막항'}))
@@ -95,9 +91,6 @@ var _sequence = {
 		//======================================== quest =========================================
 		quest : x=>{
 			$('#title_1').text(x);
-			
-			
 			_sequence.input();
-			
 		}
 }
