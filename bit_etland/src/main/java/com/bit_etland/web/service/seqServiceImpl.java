@@ -10,8 +10,7 @@ public class seqServiceImpl implements seqService{
 	public String arithmeticSequence(Map<?, ?>param) {
 		 String start = (String) param.get("start"),
 				end = (String) param.get("end"),
-				diff = (String) param.get("diff"),
-				result = "";
+				diff = (String) param.get("diff");
 		int A = Integer.parseInt(start);	//초항
 		int E = Integer.parseInt(end);	//마지막 항
 		int D = Integer.parseInt(diff);	//공차
@@ -22,7 +21,7 @@ public class seqServiceImpl implements seqService{
 			AN = A+(N-1)*D;
 			S = S + AN;
 			N = N+1;
-			if(N>E) break;
+			if(N > E) break;
 		}
 		return S+"";
 	}
@@ -31,7 +30,7 @@ public class seqServiceImpl implements seqService{
 	public String geometricSequence(Map<?, ?> param) {
 		String start = (String) param.get("start"),
 				end = (String) param.get("end"),
-				ratio = (String) param.get("ratio");
+				ratio = (String) param.get("diff");
 		int A = Integer.parseInt(start);	//초항
 		int E = Integer.parseInt(end);	//마지막 항
 		int R = Integer.parseInt(ratio);	//공비
@@ -44,5 +43,41 @@ public class seqServiceImpl implements seqService{
 			if(N > E) break;
 		}
 		return S+"";
+	}
+
+	@Override
+	public String factorialSequence(Map<?, ?> param) {
+		String start = (String) param.get("start"),
+				end = (String) param.get("end"),
+				ratio = (String) param.get("ratio");
+		int A = Integer.parseInt(start);	//초항
+		int E = Integer.parseInt(end);	//마지막 항
+		int R = Integer.parseInt(ratio);	//공비
+		int S = A;
+		int N = 2;
+
+		while (true) {
+
+			A = A * R;
+			S += A;
+			N++;
+			System.out.println("Count is " + (N - 1) + ", Number is " + A + ", Sum is " + S);
+			if (N > E) {
+				break;
+			}
+
+		}
+		System.out.println("S is " + S);
+		return S+"";
+	}
+
+	@Override
+	public String fibonacciSequence(Map<?, ?> param) {
+		return"";
+	}
+
+	@Override
+	public String switchSequence(Map<?, ?> param) {
+		return "";
 	}
 }

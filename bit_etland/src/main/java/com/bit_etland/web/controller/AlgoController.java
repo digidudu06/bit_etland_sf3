@@ -31,6 +31,7 @@ public class AlgoController {
 		String start = (String) param.get("start");
 		String end = (String) param.get("end");
 		String diff = (String) param.get("diff");
+		System.out.println(start+":::::::::::"+end+":::::::::::"+diff);
 		map.put("start",start);
 		map.put("end",end);
 		map.put("diff",diff);
@@ -39,9 +40,18 @@ public class AlgoController {
 		case "ari":
 			result = seqService.arithmeticSequence(map);
 			break;
-		case "geo":break;
-		case "fac":break;
-		case "fibo":break;
+		case "geo":
+			result = seqService.geometricSequence(map);
+			break;
+		case "fac":
+			result = seqService.factorialSequence(map);
+			break;
+		case "fibo":
+			result = seqService.fibonacciSequence(map);
+			break;
+		case "switch":
+			result = seqService.switchSequence(map);
+			break;
 		}
 		map.put("result",result);
 		return map;
